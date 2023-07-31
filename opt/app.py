@@ -22,6 +22,17 @@ logging.basicConfig(level=logging.INFO, format=fmt)
 
 load_dotenv()
 
+OPENAPI_KEY = os.getenv("OPENAI_API_KEY")
+ORGANIZATION_ID = os.getenv("ORGANAZTION_ID")
+SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN")
+SLACK_APP_TOKEN = os.getenv("SLACK_APP_TOKEN")
+
+print("BOT TOKEN: ",SLACK_BOT_TOKEN)
+print("APP TOKEN: ",SLACK_APP_TOKEN)
+print("OPENAPI KEY: ",OPENAPI_KEY)
+print("ORGANIZATION_ID: ",ORGANIZATION_ID)
+
+
 openai.organization = os.getenv("ORGANAZTION_ID")
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
