@@ -22,11 +22,22 @@ logging.basicConfig(level=logging.INFO, format=fmt)
 
 load_dotenv()
 
-openai.organization = os.getenv("ORGANAZTION_ID")
-openai.api_key = os.getenv("OPENAI_API_KEY")
+OPENAPI_KEY = os.getenv("OPENAI_API_KEY")
+ORGANIZATION_ID = os.getenv("ORGANIZATION_ID")
+SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN")
+SLACK_APP_TOKEN = os.getenv("SLACK_APP_TOKEN")
+
+print("BOT TOKEN: ",SLACK_BOT_TOKEN)
+print("APP TOKEN: ",SLACK_APP_TOKEN)
+print("OPENAPI KEY: ",OPENAPI_KEY)
+print("ORGANIZATION_ID: ",ORGANIZATION_ID)
+
+
+openai.organization = ORGANIZATION_ID
+openai.api_key =  OPENAPI_KEY
 
 # ボットトークンとソケットモードハンドラーを使ってアプリを初期化
-app = App(token=os.getenv("SLACK_BOT_TOKEN"))
+app = App(token=SLACK_BOT_TOKEN)
 
 # ユーザー利用ログを記録するDB、closeは行わない想定
 usage_log = Usage_Logs()
@@ -295,4 +306,4 @@ def handle_message_events(body, logger):
 
 # アプリを起動
 if __name__ == "__main__":
-    SocketModeHandler(app, os.getenv("SLACK_APP_TOKEN")).start()
+    SocketModeHandler(app, SLACK_APP_TOKEN).start()
