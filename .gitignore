@@ -1,4 +1,5 @@
 opt/.env
+opt/.env.*
 opt/__pycache__
 opt/gpt3contextual.db
 opt/slackbot.db
